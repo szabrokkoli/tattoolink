@@ -15,15 +15,15 @@ Az alkalmazás célja, hogy modern, intelligens időpontfoglalást és projektme
 - Szalonok értékelése és leírása
 
 ## Nem-funkcionális követelmények
-- Mobil-first, reszponzív UI (Flutter vagy React Native)
+- Mobil-first, reszponzív UI (React Native)
 - Biztonságos adatkezelés, GDPR kompatibilitás
-- Felhőalapú backend (Firebase/Supabase)
+- Felhőalapú backend (Firebase)
 - Integráció Stripe/PayPal API-val
 - Push notification támogatás
 
 ## Technológiai döntések
-- Frontend: Flutter vagy React Native
-- Backend: Firebase/Supabase
+- Frontend: React Native
+- Backend: Firebase
 - Fizetés: Stripe/PayPal
 - Push értesítések: Firebase Cloud Messaging
 
