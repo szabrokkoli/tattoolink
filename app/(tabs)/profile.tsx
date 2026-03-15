@@ -1,9 +1,10 @@
 import { Text, View } from 'react-native';
+import { profileStyles } from '../../styles/profile.styles';
 
 export default function ProfileScreen() {
   return (
-    <View style={{ flex: 1, justifyContent: 'center', alignItems: 'center' }}>
-      <Text style={{ fontSize: 32 }}>Profil</Text>
+    <View style={profileStyles.container}>
+      <Text style={profileStyles.username}>Profil</Text>
     </View>
   );
 }
