@@ -1,28 +1,29 @@
-import { TextStyle, ViewStyle } from 'react-native';
 
-type HomeStyles = {
-	container: ViewStyle;
-	title: TextStyle;
-	subtitle: TextStyle;
-};
 
+import { TextStyle } from 'react-native';
 import { Colors, Fonts, Spacing } from '../constants/theme';
+import { useColorScheme } from '../hooks/use-color-scheme';
 
-export const homeStyles: HomeStyles = {
-	container: {
-		flex: 1,
-		alignItems: 'center',
-		justifyContent: 'center',
-		padding: Spacing.md,
-	},
-	title: {
-		fontSize: Fonts.sizeLg,
-		fontWeight: 'bold',
-		marginBottom: Spacing.sm,
-		color: Colors.light.primary,
-	},
-	subtitle: {
-		fontSize: Fonts.sizeMd,
-		color: Colors.light.text,
-	},
-};
+export function useHomeStyles() {
+	const colorScheme = useColorScheme() ?? 'light';
+	return {
+		container: {
+			flex: 1,
+            alignItems: 'center' as const,
+            justifyContent: 'center' as const,
+            padding: Spacing.md,
+		},
+		title: {
+			fontSize: Fonts.sizeLg,
+            fontWeight: 'bold' as TextStyle['fontWeight'],
+			marginBottom: Spacing.sm,
+			color: Colors[colorScheme].primary,
+            lineHeight: Fonts.sizeLg * 1.2,
+		},
+		subtitle: {
+			fontSize: Fonts.sizeMd,
+			color: Colors[colorScheme].text,
+            textAlign: 'center' as const,
+		},
+	};
+}

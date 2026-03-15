@@ -1,10 +1,14 @@
-import { Text, View } from 'react-native';
-import { profileStyles } from '../../styles/profile.styles';
+import { ThemedText } from '../../components/themed-view/themed-text';
+import { ThemedView } from '../../components/themed-view/themed-view';
+import { Colors } from '../../constants/theme';
+import { useProfileStyles } from '../../styles/profile.styles';
 
 export default function ProfileScreen() {
-  return (
-    <View style={profileStyles.container}>
-      <Text style={profileStyles.username}>Profil</Text>
-    </View>
-  );
+    const profileStyles = useProfileStyles();
+    return (
+        <ThemedView style={profileStyles.container} lightColor={Colors.light.background} darkColor={Colors.dark.background}>
+            <ThemedText style={profileStyles.title}>Profil</ThemedText>
+            <ThemedText style={profileStyles.subtitle}>Hamarosan...</ThemedText>
+        </ThemedView>
+    );
 }

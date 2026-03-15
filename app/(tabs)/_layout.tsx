@@ -1,28 +1,40 @@
-import { Tabs } from 'expo-router';
-import React from 'react';
-
-import { HapticTab } from '@/components/ui/haptic-tab';
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { Tabs } from 'expo-router';
+import React from 'react';
+import { View } from 'react-native';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   return (
-    <Tabs
-      screenOptions={{
-        tabBarActiveTintColor: Colors[colorScheme ?? 'light'].primary,
-        headerShown: false,
-        tabBarButton: HapticTab,
-        tabBarStyle: { 
-          height: 70, 
-          alignItems: 'center', 
-          justifyContent: 'center',
-          flexDirection: 'row',
-          display: 'flex'
-        }
-      }}>
+    <>
+      <View style={{
+        backgroundColor: Colors.dark.background,
+        position: 'absolute',
+        left: 0,
+        right: 0,
+        bottom: 0,
+        top: 0,
+        zIndex: -1,
+      }} />
+      <Tabs
+        screenOptions={{
+          tabBarActiveTintColor: Colors[colorScheme ?? 'light'].primary,
+          headerShown: false,
+          tabBarStyle: { 
+             height: 90,
+             justifyContent: 'center',
+             alignItems: 'center',
+             borderRadius: 40,
+             paddingTop: 16,
+             paddingBottom: 16,
+             display: 'flex',
+             marginHorizontal: 12,
+             marginBottom: 12,
+          }
+        }}>
         <Tabs.Screen
           name="index"
           options={{
@@ -38,12 +50,20 @@ export default function TabLayout() {
           }}
         />
         <Tabs.Screen
+          name="messages"
+          options={{
+            tabBarIcon: ({ color }) => <IconSymbol size={28} name="bubble.left.and.bubble.right.fill" color={color} />, 
+            title: 'Üzenetek',
+          }}
+        />
+        <Tabs.Screen
           name="profile"
           options={{
             tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.crop.circle" color={color} />, 
             title: 'Profil',
           }}
         />
-    </Tabs>
+      </Tabs>
+    </>
   );
 }

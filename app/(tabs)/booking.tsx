@@ -1,10 +1,14 @@
-import { Text, View } from 'react-native';
-import { bookingStyles } from '../../styles/booking.styles';
+import { ThemedText } from '../../components/themed-view/themed-text';
+import { ThemedView } from '../../components/themed-view/themed-view';
+import { Colors } from '../../constants/theme';
+import { useBookingStyles } from '../../styles/booking.styles';
 
 export default function BookingScreen() {
-  return (
-    <View style={bookingStyles.container}>
-      <Text style={bookingStyles.title}>Időpontfoglalás</Text>
-    </View>
-  );
+	const bookingStyles = useBookingStyles();
+	return (
+		<ThemedView style={bookingStyles.container} lightColor={Colors.light.background} darkColor={Colors.dark.background}>
+			<ThemedText style={bookingStyles.title}>Időpontfoglalás</ThemedText>
+			<ThemedText style={bookingStyles.subtitle}>Hamarosan...</ThemedText>
+		</ThemedView>
+	);
 }

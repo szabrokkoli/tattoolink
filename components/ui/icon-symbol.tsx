@@ -20,6 +20,7 @@ const MAPPING = {
   'chevron.right': 'chevron-right',
   'person.crop.circle': 'person',
   'calendar.badge.plus': 'event',
+  'bubble.left.and.bubble.right.fill': 'chat',
 } as IconMapping;
 
 /**
