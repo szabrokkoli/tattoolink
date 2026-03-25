@@ -7,8 +7,8 @@ export default function MessagesScreen() {
 	const messagesStyles = useMessagesStyles();
 	return (
 		<ThemedView style={messagesStyles.container} lightColor={Colors.light.background} darkColor={Colors.dark.background}>
-			<ThemedText style={messagesStyles.title}>Üzenetek</ThemedText>
-			<ThemedText style={messagesStyles.subtitle}>Hamarosan...</ThemedText>
+				<ThemedText style={messagesStyles.title} accessibilityRole="header">Üzenetek</ThemedText>
+				<ThemedText style={messagesStyles.subtitle}>Hamarosan...</ThemedText>
 		</ThemedView>
 	);
 }

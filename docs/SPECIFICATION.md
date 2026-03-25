@@ -1,13 +1,13 @@
-# Tetoválószalon Időpontfoglaló – SPECIFICATION
+# TattoLink – SPECIFICATION
 
 ## Rövid leírás
-Az alkalmazás célja, hogy modern, intelligens időpontfoglalást és projektmenedzsmentet biztosítson tetoválószalonok és vendégeik számára. A rendszer támogatja a konzultációkat, dinamikus időtartamokat, digitális beleegyező nyilatkozatokat, pénzügyi folyamatokat és portfólió böngészést.
+Az alkalmazás célja, hogy modern, intelligens időpontfoglalást, szalon- és művészböngészést, értékelést, portfólió megtekintést és üzenetküldést biztosítson tetoválószalonok és vendégeik számára. A rendszer támogatja a konzultációkat, dinamikus időtartamokat, pénzügyi folyamatokat, portfólió böngészést és üzeneteket.
 
 ## Funkcionális követelmények
 - Időpontfoglalás tetoválóművészekhez, konzultációs ablakokkal
 - Dinamikus időtartam: művész stílusonként beállíthatja a szükséges időt
 - Referenciakép feltöltés foglaláskor
-- Digitális beleegyező nyilatkozat kitöltése
+- Üzenetküldés művész és vendég között
 - Utóápolási push-értesítések
 - Előlegkezelés Stripe/PayPal integrációval
 - Árkalkulátor méret és bonyolultság alapján
@@ -17,28 +17,32 @@ Az alkalmazás célja, hogy modern, intelligens időpontfoglalást és projektme
 ## Nem-funkcionális követelmények
 - Mobil-first, reszponzív UI (React Native)
 - Biztonságos adatkezelés, GDPR kompatibilitás
-- Felhőalapú backend (Firebase)
+- Felhőalapú backend (Supabase/Postgres)
 - Integráció Stripe/PayPal API-val
 - Push notification támogatás
 
 ## Technológiai döntések
 - Frontend: React Native
-- Backend: Firebase
+- Backend: Supabase (Postgres)
 - Fizetés: Stripe/PayPal
-- Push értesítések: Firebase Cloud Messaging
+- Push értesítések: Expo/Firebase Cloud Messaging
 
 ## Felhasználói szerepkörök
-- Vendég: időpontfoglalás, portfólió böngészés, értékelés, nyilatkozat kitöltése
-- Tetoválóművész: naptár kezelése, projektmenedzsment, portfólió feltöltése
+- Vendég: időpontfoglalás, portfólió böngészés, értékelés, üzenetküldés
+- Tetoválóművész: naptár kezelése, projektmenedzsment, portfólió feltöltése, üzenetkezelés
 - Szalon admin: művészek kezelése, pénzügyi modul, értékelések moderálása
 
 ## Képernyőlista és navigációs terv
+Tab navigáció (nav bar):
 1. Főoldal (szalonok, portfóliók böngészése)
 2. Időpontfoglalás (naptár, konzultáció, referenciakép feltöltés)
-3. Projekt részletei (méret, testrész, beleegyező nyilatkozat)
-4. Fizetés (előleg, árkalkulátor)
-5. Utóápolási útmutató (push-értesítések)
-6. Saját profil (foglalások, értékelések)
-7. Admin felület (szalon admin)
+3. Üzenetek (művész és vendég közötti chat)
+4. Saját profil (foglalások, értékelések)
 
-Navigáció: Stack-alapú fő navigáció, tab-alapú elérés a fő funkciókhoz (pl. portfólió, foglalás, profil).
+Stack navigációval elérhető további képernyők:
+- Projekt részletei (méret, testrész)
+- Fizetés (előleg, árkalkulátor)
+- Utóápolási útmutató (push-értesítések)
+- Admin felület (szalon admin)
+
+Navigáció: Tab-alapú fő navigáció (Home, Időpontfoglalás, Üzenetek, Profil), további funkciók stack navigációval.

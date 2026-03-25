@@ -1,4 +1,4 @@
-# Tetoválószalon Időpontfoglaló – COMPONENTS
+# TattooLink – COMPONENTS
 
 ## Komponensfa
 
@@ -16,7 +16,8 @@
     - ProjectDetailsScreen
       - SizeSelector
       - BodyPartSelector
-      - ConsentForm
+      - MessageList
+      - MessageItem
     - PaymentScreen
       - DepositHandler
       - PriceCalculator
@@ -26,6 +27,7 @@
     - ProfileScreen
       - BookingHistory
       - ReviewList
+      - MessageList
     - AdminScreen
       - ArtistManagement
       - FinancialOverview
@@ -33,6 +35,6 @@
 
 ## Navigációs gráf
 
-- Fő navigáció: Stack (Home → Booking → ProjectDetails → Payment → Aftercare → Profile → Admin)
-- Tab navigáció: Home, Booking, Profile, Admin
+- Fő navigáció: Stack (Home → Booking → ProjectDetails → Payment → Aftercare → Profile → Admin → Messages)
+- Tab navigáció: Home, Booking, Profile, Admin, Messages
 - Minden fő funkció külön képernyőn, komponensek hierarchikusan beágyazva.

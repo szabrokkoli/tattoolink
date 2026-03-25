@@ -1,17 +1,18 @@
 import { IconSymbol } from '@/components/ui/icon-symbol';
 import { Colors } from '@/constants/theme';
 import { useColorScheme } from '@/hooks/use-color-scheme';
+import { useComponentBackground } from '@/hooks/use-component-background';
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { View } from 'react-native';
+import { Image, View } from 'react-native';
 
 export default function TabLayout() {
   const colorScheme = useColorScheme();
-
+  const navBg = useComponentBackground();
   return (
     <>
       <View style={{
-        backgroundColor: Colors.dark.background,
+        backgroundColor: Colors[colorScheme ?? 'light'].background,
         position: 'absolute',
         left: 0,
         right: 0,
@@ -19,21 +20,45 @@ export default function TabLayout() {
         top: 0,
         zIndex: -1,
       }} />
+      {/* Brand header */}
+      <View style={{
+        flexDirection: 'row',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginTop: 48,
+        marginBottom: 16,
+      }}>
+        <View style={{ marginRight: 12 }}>
+          <Image
+            source={colorScheme === 'dark' ? require('@/assets/images/logo_dark.png') : require('@/assets/images/logo.png')}
+            style={{ width: 40, height: 40 }}
+            resizeMode="contain"
+            accessibilityLabel="Logo"
+          />
+        </View>
+        <Image
+          source={colorScheme === 'dark' ? require('@/assets/images/brand_name_dark.png') : require('@/assets/images/brand_name.png')}
+          style={{ width: 120, height: 32 }}
+          resizeMode="contain"
+          accessibilityLabel="Brand Name"
+        />
+      </View>
       <Tabs
         screenOptions={{
           tabBarActiveTintColor: Colors[colorScheme ?? 'light'].primary,
           headerShown: false,
-          tabBarStyle: { 
-             height: 90,
-             justifyContent: 'center',
-             alignItems: 'center',
-             borderRadius: 40,
-             paddingTop: 16,
-             paddingBottom: 16,
-             display: 'flex',
-             marginHorizontal: 12,
-             marginBottom: 12,
-          }
+          tabBarStyle: {
+            height: 90,
+            justifyContent: 'center',
+            alignItems: 'center',
+            borderRadius: 40,
+            paddingTop: 16,
+            paddingBottom: 16,
+            display: 'flex',
+            marginHorizontal: 12,
+            marginBottom: 12,
+            backgroundColor: navBg,
+          },
         }}>
         <Tabs.Screen
           name="index"
